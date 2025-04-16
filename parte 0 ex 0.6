@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: El usuario escribe una nota en el campo de texto y hace clic en "Save"
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: { "message": "note created" }
+    deactivate server
+
+    Note right of browser: La nota se añade a la lista sin recargar la página
+    Note right of browser: La aplicación actualiza el estado local y renderiza nuevamente la lista de notas
